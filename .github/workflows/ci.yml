@@ -1,9 +1,13 @@
 name: CI
 
 on:
-  watch:
   workflow_dispatch:
   push:
+    branches:
+      - readme
+    paths:
+      - .github/workflows/ci.yml
+  watch:
     branches:
       - readme
     paths:
