@@ -1,6 +1,7 @@
 name: CI
 
 on:
+  watch:
   workflow_dispatch:
   push:
     branches:
