@@ -17,13 +17,12 @@ Password: `1234`
 
 ### `BOARD`=`onecloud`
 
-### `BRANCH`={`edge`,`current`,`legacy`}
+### `BRANCH`={`edge`,`current`}
 
 | BRANCH    | kernel version | eMMC | HDMI | VPU |
 | :-:       | :-:            | :-:  | :-:  | :-: |
 | `edge`    | `v6.1`         | ✔️¹  | ✔️² | ✔️² |
 | `current` | `v5.15`        | ✔️¹  | ✔️² | ✔️² |
-| `legacy`  | `v5.10`        | ✔️¹  | ✔️² | ✔️² |
 
 > ¹: Need a patch
 >
@@ -50,13 +49,13 @@ fatload ${bootdev} 0x20800000 boot.scr && autoscr 0x20800000
 
 In the board, there is a missing 44-pins chip (WiFi module possibly) which has lots of pins connected to the `SoC`. They are ablt to be used as `GPIO`.
 
-Please check the `dts` (added by `patch/kernel/meson-{edge,current,legacy}/board_onecloud/0001-add-dts.patch`) for more details.
+Please check the `dts` (added by `patch/kernel/meson-{edge,current}/board_onecloud/0001-add-dts.patch`) for more details.
 
 NOTE: These pins were found in `V1.0 board`. Those in `V1.3 board` was not confirmed yet.
 
 ## Related link
 
-[`armbian/build`](https://github.com/armbian/build) - Armbian offical
+[`armbian/build`](https://github.com/armbian/build) - Armbian official repository
 
 [`xdarklight/linux@meson-mx-integration-5.18-20220417`](https://github.com/xdarklight/linux/tree/meson-mx-integration-5.18-20220417) - the source of `HDMI` patch
 
