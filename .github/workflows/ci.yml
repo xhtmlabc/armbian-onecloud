@@ -100,9 +100,9 @@ jobs:
           repository: ${{ env.ARMBIAN_REPO }}
           ref: ${{ env.ARMBIAN_SHA }}
 
-      - name: "Apply patch #4891, #4996, #4997 and #4077"
+      - name: "Apply patch #4077"
         run: |
-          curl -L -O "https://github.com/armbian/build/pull/{4891,4996,4997,4077}.patch"
+          curl -L -O "https://github.com/armbian/build/pull/4077.patch"
           for file in *.patch; do
             patch --batch -p1 -N <"$file"
           done
@@ -163,9 +163,9 @@ jobs:
           repository: ${{ env.ARMBIAN_REPO }}
           ref: ${{ env.ARMBIAN_SHA }}
 
-      - name: "Apply patch #4891, #4996, #4997 and #4077"
+      - name: "Apply patch #4077"
         run: |
-          curl -L -O "https://github.com/armbian/build/pull/{4891,4996,4997,4077}.patch"
+          curl -L -O "https://github.com/armbian/build/pull/4077.patch"
           for file in *.patch; do
             patch --batch -p1 -N <"$file"
           done
@@ -258,6 +258,9 @@ jobs:
   release:
     needs: [ prepare, build ]
     runs-on: ubuntu-22.04
+    permissions:
+      contents: write
+
     steps:
       - name: Import env
         run: |
